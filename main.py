@@ -7,4 +7,6 @@ import datetime
 # load dataset
 dataset = pd.read_csv('data/Google_Stock_Price_Train.csv', index_col='Date', parse_dates=True)
 
-print(dataset.head())
+# convert data-types in dataset
+dataset['Close'] = dataset['Close'].str.replace(',','').astype(float)
+dataset['Volume'] = dataset['Volume'].str.replace(',','').astype(float)
